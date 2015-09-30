@@ -1,0 +1,17 @@
+﻿<Application x:Class="HLL.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style x:Key="ControlStyle" TargetType="Control">
+            <Setter Property="FontFamily" Value="Helvetica Neue"></Setter>
+        </Style>
+        <BitmapImage x:Key="AppIcon" UriSource="Images/HLLIcon.png"></BitmapImage>
+        <BitmapImage x:Key="Folder" UriSource="Images/folder.png"></BitmapImage>
+        <Color x:Key="iBlueColor">#157efb</Color>
+        <SolidColorBrush x:Key="iBlue" Color="#157efb"></SolidColorBrush>
+        <SolidColorBrush x:Key="NavigationBarBackground" Color="#f7f7f8"></SolidColorBrush>
+        <SolidColorBrush x:Key="NavigationBarSeperatorColor" Color="#b2b2b2"></SolidColorBrush>
+        
+    </Application.Resources>
+</Application>
