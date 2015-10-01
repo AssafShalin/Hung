@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -30,10 +31,18 @@ namespace HLL
             }
             else
             {
-                 var dirs = Directory.GetDirectories(path);
-                foreach(var dir in dirs) 
+                try
                 {
-                    list.Add(new FolderListItem(dir));
+                    var dirs = Directory.GetDirectories(path);
+                    foreach (var dir in dirs)
+                    {
+                        var dirName = Path.GetFileName(dir);
+                        list.Add(new FolderListItem(dirName));
+                    }
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e.Message);
                 }
             }
             return list;

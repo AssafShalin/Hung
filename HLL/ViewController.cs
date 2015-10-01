@@ -7,21 +7,27 @@ using System.Windows.Controls;
 
 namespace HLL
 {
-    class ViewController
+    abstract class ViewController
     {
-        private Grid view;
+        protected UserControl nib;
         protected ViewControllerContext context;
-        public ViewController(Grid view, ViewControllerContext context)
+        public ViewController(ViewControllerContext context)
         {
-            this.view = view;
             this.NavigationBarExists = true;
             this.context = context;
 
         }
-        public Grid GetView()
+        public UserControl GetNib()
         {
-            return view;
+            return this.nib;
         }
+        public abstract UserControl CreateView();
+
+        public virtual void AfterCreate()
+        {
+
+        }
+        public abstract Grid GetView();
 
         public virtual void OnShow()
         {

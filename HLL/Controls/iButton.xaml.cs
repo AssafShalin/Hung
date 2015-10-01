@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HLL
+namespace HLL.Controls
 {
     /// <summary>
     /// Interaction logic for iButton.xaml
@@ -52,7 +52,7 @@ namespace HLL
         {
             this.ButtonBorder.Background = white;
             this.ButtonLabel.Foreground = iBlue;
-            if(this.OnClick != null)
+            if (this.OnClick != null)
                 this.OnClick(this, null);
         }
     }

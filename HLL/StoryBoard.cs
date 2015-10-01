@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HLL.ViewControllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,8 +17,8 @@ namespace HLL
         public StoryBoard(Window window, NavigationViewController navigationViewController)
         {
             ViewControllerContext context = new ViewControllerContext(this, navigationViewController);
-            AddView(0, "GetStarted", new GetStartedViewController((Grid)window.FindName("GetStarted"), context));
-            AddView(1, "FilePicker", new FilePickerViewController((Grid)window.FindName("FilePicker"), context));
+            AddView(0, "GetStarted", new GetStartedViewController(context));
+            AddView(1, "FilePicker", new FilePickerViewController(context));
 
 
         }

@@ -61,18 +61,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="FilePickerViewController.cs" />
-    <Compile Include="FolderListItem.cs" />
-    <Compile Include="GetStartedViewController.cs" />
-    <Compile Include="iButton.xaml.cs">
+    <Compile Include="Controls\iButton.xaml.cs">
       <DependentUpon>iButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewControllers\FilePickerViewController.cs" />
+    <Compile Include="FolderListItem.cs" />
+    <Compile Include="ViewControllers\GetStartedViewController.cs" />
     <Compile Include="NavigationViewController.cs" />
+    <Compile Include="Nibs\FilePicker.xaml.cs">
+      <DependentUpon>FilePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Nibs\GetStarted.xaml.cs">
+      <DependentUpon>GetStarted.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StoryBoard.cs" />
     <Compile Include="UIAnimations.cs" />
     <Compile Include="ViewController.cs" />
     <Compile Include="ViewControllerContext.cs" />
-    <Page Include="iButton.xaml">
+    <Page Include="Controls\iButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,9 +94,17 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ScrollBarTemplate.xaml">
+    <Page Include="Controls\ScrollBarTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Nibs\FilePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Nibs\GetStarted.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

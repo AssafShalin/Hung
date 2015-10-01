@@ -21,8 +21,12 @@ namespace HLL
         private buttonAction leftButtonAction;
         private buttonAction rightButtonAction;
         private Label title;
-        public NavigationViewController(Grid navigationBar)
+        private Window canvas;
+        private Grid canvasGrid;
+        public NavigationViewController(Window canvas, Grid navigationBar)
         {
+            this.canvas = canvas;
+            this.canvasGrid = canvas.FindName("Canvas") as Grid;
             this.navigationBar = navigationBar;
             this.leftButton = (Label)navigationBar.FindName("LeftButtonLabel");
             this.rightButton = (Label)navigationBar.FindName("RightButtonLabel");
@@ -58,6 +62,11 @@ namespace HLL
         
         public void SetTitle(string title)
         {
+            if (title.Length > 15) {
+                title = title.Substring(0, 15);
+                title.Trim();
+                title += "...";
+            }
             this.title.Content = title;
         }
         public void SetLeftButtonText(string text)
@@ -85,7 +94,8 @@ namespace HLL
         {
             if (view.NavigationBarExists)
             {
-                UIAnimations.PopInNavigationBar(this.navigationBar);
+                if(!this.views.Peek().NavigationBarExists)
+                    UIAnimations.PopInNavigationBar(this.navigationBar);
             }
             else
             {
@@ -108,6 +118,8 @@ namespace HLL
             {
                 lastView.OnHide();
                 currentView.OnShow();
+                this.canvasGrid.Children.Remove(lastView.GetNib());
+                
             });
             
 
@@ -124,8 +136,18 @@ namespace HLL
                 rightButtonAction = null;
             }
         }
+
+        public void AddViewToWindow(ViewController view)
+        {
+            var nib = view.CreateView();
+            var grid = view.GetView();
+            grid.Visibility = Visibility.Hidden;
+            canvasGrid.Children.Add(nib);
+            view.AfterCreate();
+        }
         public void PushView(ViewController view) 
         {
+            AddViewToWindow(view);
             HandleNavigationBar(view);
             if (views.Count == 0)
             {

@@ -26,7 +26,7 @@ namespace HLL
         public MainWindow()
         {
             InitializeComponent();
-            navigationViewController = new NavigationViewController(this.NavigationBar);
+            navigationViewController = new NavigationViewController(this, this.NavigationBar);
             storyBoard = new StoryBoard(this,navigationViewController);
         }
 
