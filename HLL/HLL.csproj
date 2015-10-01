@@ -64,8 +64,16 @@
     <Compile Include="Controls\iButton.xaml.cs">
       <DependentUpon>iButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TaskElement.xaml.cs">
+      <DependentUpon>TaskElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoadKeysFromDiskTask.cs" />
+    <Compile Include="Nibs\TaskRunner.xaml.cs">
+      <DependentUpon>TaskRunner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Adapters\TaskRunnerTasks.cs" />
     <Compile Include="ViewControllers\FilePickerViewController.cs" />
-    <Compile Include="FolderListItem.cs" />
+    <Compile Include="ViewControllers\Adapters\FolderListItem.cs" />
     <Compile Include="ViewControllers\GetStartedViewController.cs" />
     <Compile Include="NavigationViewController.cs" />
     <Compile Include="Nibs\FilePicker.xaml.cs">
@@ -78,7 +86,12 @@
     <Compile Include="UIAnimations.cs" />
     <Compile Include="ViewController.cs" />
     <Compile Include="ViewControllerContext.cs" />
+    <Compile Include="ViewControllers\TaskRunnerViewController.cs" />
     <Page Include="Controls\iButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TaskElement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -103,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Nibs\GetStarted.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Nibs\TaskRunner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -143,6 +160,8 @@
   <ItemGroup>
     <Resource Include="Images\folder.png" />
     <Resource Include="Images\loading_spinner.gif" />
+    <Resource Include="Images\fail-icon.png" />
+    <Resource Include="Images\success-icon.png" />
     <Content Include="WpfAnimatedGif.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

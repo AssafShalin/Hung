@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HLL.Controls;
+using HLL.ViewControllers.Adapters;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,7 +15,7 @@ namespace HLL.ViewControllers
     {
         private ListView folderListView;
         private Label selectedPathLabel;
-
+        private iButton select;
         private string path;
         
         public FilePickerViewController(ViewControllerContext context, string path="") : base(context)
@@ -25,19 +27,25 @@ namespace HLL.ViewControllers
         {
             if(this.folderListView.SelectedItem != null)
             {
-                var selectedFolder = ((FolderListItem)this.folderListView.SelectedItem).Text;
+                var selectedFolder = ((FolderListItem)this.folderListView.SelectedItem).FolderName;
                 
                 var newPath = this.path == "" ? selectedFolder : this.path + @"\" + selectedFolder;
                 newPath = newPath.Replace(@"\\", @"\");
                 var info = new FileInfo(newPath);
                 newPath = info.FullName;
-                var newViewController = new FilePickerViewController(this.context, newPath);
-                this.context.NavigationViewController.PushView(newViewController);
+
+                var newFolder = FolderListItem.CreateForDirectory(newPath);
+                if(newFolder.Count > 0) {
+                    var newViewController = new FilePickerViewController(this.context, newPath);
+                    this.context.NavigationViewController.PushView(newViewController);
+                }
+                
             }
         }
         public override void BeforeShow()
         {
-            this.selectedPathLabel.Content = path;
+            var pathLabel = path.Length > 40 ? path.Substring(0, 20) + "..." + path.Substring(path.Length-20, 20) : path;
+            this.selectedPathLabel.Content = pathLabel;
             this.context.NavigationViewController.SetRightButtonText("");
             if (path == "")
                 this.context.NavigationViewController.SetTitle("Select Folder");
@@ -61,7 +69,14 @@ namespace HLL.ViewControllers
         {
             this.folderListView = this.GetView().FindName("FolderListView") as ListView;
             this.selectedPathLabel = this.GetView().FindName("SelectedPath") as Label;
+            this.select = this.GetView().FindName("SelectButton") as iButton;
             this.folderListView.SelectionChanged += folderListView_SelectionChanged;
+            this.select.OnClick += select_OnClick;
+        }
+
+        void select_OnClick(object sender, EventArgs e)
+        {
+            this.context.NavigationViewController.PushView(new TaskRunnerViewController(context, new LoadKeysFromDiskTask(this.path)));
         }
         public override Grid GetView()
         {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HLL
+namespace HLL.ViewControllers.Adapters
 {
     class FolderListItem
     {
@@ -16,7 +16,15 @@ namespace HLL
             this.Text = text;
         }
 
-        public string Text { get; set; }
+        private string fullPath;
+        private string _text;
+        public string Text { get { return _text; } set { 
+            this.fullPath = value;
+            this._text = value.Length > 22 ? value.Substring(0, 22).Trim() + "..." : value;
+        } 
+        }
+
+        public string FolderName { get { return fullPath; } }
 
         public static List<FolderListItem> CreateForDirectory(string path = "") 
         {

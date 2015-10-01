@@ -8,8 +8,8 @@
              d:DesignHeight="200" d:DesignWidth="500">
     <Grid DataContext="{Binding ElementName=parent}" MouseLeftButtonDown="Border_MouseLeftButtonDown" MouseLeftButtonUp="ButtonBorder_MouseLeftButtonUp">
 
-        <Border Name="ButtonBorder" BorderBrush="{StaticResource iBlue}" BorderThickness="1" CornerRadius="15" MouseLeftButtonDown="Border_MouseLeftButtonDown" MouseLeftButtonUp="ButtonBorder_MouseLeftButtonUp">
-            <Label Name="ButtonLabel" HorizontalAlignment="Center" Foreground="{StaticResource iBlue}" FontSize="30" Grid.Row="3" Content="{Binding Path=Label}" MouseLeftButtonDown="Border_MouseLeftButtonDown" MouseLeftButtonUp="ButtonBorder_MouseLeftButtonUp"></Label>
+        <Border Name="ButtonBorder" BorderBrush="{StaticResource iBlue}" BorderThickness="1" CornerRadius="15">
+            <Label Name="ButtonLabel" HorizontalAlignment="Center" Foreground="{StaticResource iBlue}" FontSize="30" Grid.Row="3" Content="{Binding Path=Label}"></Label>
         </Border>
     </Grid>
 </UserControl>

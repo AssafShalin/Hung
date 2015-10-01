@@ -28,8 +28,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Label Name="SelectedPath" Grid.Row="1" FontSize="20"></Label>
-            <Controls:iButton Grid.Row="2" Width="300" Height="50" Label="Select"></Controls:iButton>
+            <Label Name="SelectedPath" Grid.Row="1" FontSize="27" Foreground="#8e8e93"></Label>
+            <Controls:iButton x:Name="SelectButton"  Grid.Row="2" Width="300" Height="50" Label="Select"></Controls:iButton>
 
         </Grid>
     </Grid>

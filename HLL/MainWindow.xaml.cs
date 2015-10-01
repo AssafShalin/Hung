@@ -28,6 +28,7 @@ namespace HLL
             InitializeComponent();
             navigationViewController = new NavigationViewController(this, this.NavigationBar);
             storyBoard = new StoryBoard(this,navigationViewController);
+            
         }
 
 

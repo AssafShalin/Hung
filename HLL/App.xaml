@@ -8,6 +8,8 @@
         </Style>
         <BitmapImage x:Key="AppIcon" UriSource="Images/HLLIcon.png"></BitmapImage>
         <BitmapImage x:Key="Folder" UriSource="Images/folder.png"></BitmapImage>
+        <BitmapImage x:Key="FailIcon" UriSource="Images/fail-icon.png"></BitmapImage>
+        <BitmapImage x:Key="SucessIcon" UriSource="Images/success-icon.png"></BitmapImage>
         <Color x:Key="iBlueColor">#157efb</Color>
         <SolidColorBrush x:Key="iBlue" Color="#157efb"></SolidColorBrush>
         <SolidColorBrush x:Key="NavigationBarBackground" Color="#f7f7f8"></SolidColorBrush>
