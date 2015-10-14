@@ -11,11 +11,11 @@
         <StackPanel Orientation="Horizontal">
             
             <Grid VerticalAlignment="Center" >
-                <Image Height="20" Name="Fail" Visibility="Hidden" Source="{StaticResource FailIcon}"></Image>
-                <Image Height="20" Name="Success" Visibility="Hidden" Source="{StaticResource SucessIcon}"></Image>
+                <Image Height="20" Name="Fail" Visibility="Hidden" Source="{StaticResource FailIconSmall}"></Image>
+                <Image Height="20" Name="Success" Visibility="Hidden" Source="{StaticResource SucessIconSmall}"></Image>
                 <Image Height="40" Name="Progress" Visibility="Visible" gif:ImageBehavior.AnimatedSource="../Images/loading_spinner.gif"></Image>
             </Grid>
-            <Label Content="{Binding Label}" FontSize="30" VerticalAlignment="Center"></Label>
+            <Label Content="{Binding Label}" FontSize="40" VerticalAlignment="Center"></Label>
         </StackPanel>
     </Grid>
 </UserControl>

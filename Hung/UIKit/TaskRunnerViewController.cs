@@ -11,14 +11,20 @@ using System.Windows.Controls;
 
 namespace HLL.ViewControllers
 {
-    class TaskRunnerViewController : ViewController
+    abstract class TaskRunnerViewController : ViewController
     {
         private StackPanel taskContainer;
         private iButton button;
-        public TaskRunnerViewController(ViewControllerContext context, TaskRunnerTasks tasks) : base(context)
+        public string TaskTitle { get; set; }
+        public string ContinueButtonText { get; set; }
+        public TaskRunnerViewController(ViewControllerContext context) : base(context)
         {
-            this.tasks = tasks;
+            this.tasks = this.GetTasks();
+            TaskTitle = "Runnig";
+            ContinueButtonText = "Continue";
         }
+        public abstract TaskRunnerTasks GetTasks();
+
         public override System.Windows.Controls.UserControl CreateView()
         {
             this.nib = new Nibs.TaskRunner();
@@ -27,22 +33,36 @@ namespace HLL.ViewControllers
 
         public override void AfterCreate()
         {
-            
             this.taskContainer = GetView().FindName("TasksContainer") as StackPanel;
             this.button = GetView().FindName("Continue") as iButton;
+            this.button.Label = this.ContinueButtonText;
+            this.button.OnClick += OnContinueClick;
         }
+
+        public virtual void OnContinueClick(object sender, EventArgs e)
+        {
+
+        }
+
+        public virtual void OnTasksFinished(bool results)
+        {
+
+        }
+
         public override void BeforeShow()
         {
             this.context.NavigationViewController.SetRightButtonText("");
-            this.context.NavigationViewController.SetTitle(this.tasks.TaskTitle);
+            this.context.NavigationViewController.SetTitle(this.TaskTitle);
         }
         public override void OnShow()
         {
             (new Thread(PerformTasks)).Start();
         }
 
-        public void PerformTasks()
+        private void PerformTasks()
         {
+            int i = 0;
+            var totalResults = true;
             foreach(var task in this.tasks.GetTasks())
             {
                 var desc = task.Item1;
@@ -56,26 +76,30 @@ namespace HLL.ViewControllers
                 });
                 while (waitForUI) { }
                 var results = action();
+                totalResults &= results;
                 var status = results ? TaskElement.StatusEnum.Success : TaskElement.StatusEnum.Fail;
                 this.nib.Dispatcher.Invoke(() =>
                 {
                     taskView.Status = status;
+                    UIAnimations.AnimateTransform(new Point(0, 0), new Point(0, -10 * i), taskView);
                 });
+                i++;
             }
             this.nib.Dispatcher.Invoke(() =>
             {
                 this.button.Visibility = Visibility.Visible;
                 UIAnimations.FlowDown(this.button,0);
+                this.OnTasksFinished(totalResults);
             });
         }
         private TaskElement CreateTaskView(string description)
         {
             var taskView = new TaskElement();
-            taskView.Height = 60;
+            taskView.Height = 90;
             taskView.Label = description;
             taskContainer.Children.Add(taskView);
             Grid grid = taskView.FindName("Container") as Grid;
-            UIAnimations.FlowDown(taskView, 0);
+            UIAnimations.FlowUp(taskView, 0);
             return taskView;
         }
 

@@ -10,6 +10,7 @@ namespace HLL
     {
         private StoryBoard _storyBoard;
         public StoryBoard StoryBoard{ get {return _storyBoard; }}
+        public Models.Models Models { get; set; }
 
         private NavigationViewController _navigationViewController;
         public NavigationViewController NavigationViewController { get { return _navigationViewController; } }

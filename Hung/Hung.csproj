@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HLL</RootNamespace>
-    <AssemblyName>Habuskus</AssemblyName>
+    <AssemblyName>Hung</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>HLLIcon.ico</ApplicationIcon>
+    <ApplicationIcon>HungIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -67,7 +67,9 @@
     <Compile Include="Controls\TaskElement.xaml.cs">
       <DependentUpon>TaskElement.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoadKeysFromDiskTask.cs" />
+    <Compile Include="Models\Keys.cs" />
+    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\Models.cs" />
     <Compile Include="Nibs\TaskRunner.xaml.cs">
       <DependentUpon>TaskRunner.xaml</DependentUpon>
     </Compile>
@@ -75,18 +77,19 @@
     <Compile Include="ViewControllers\FilePickerViewController.cs" />
     <Compile Include="ViewControllers\Adapters\FolderListItem.cs" />
     <Compile Include="ViewControllers\GetStartedViewController.cs" />
-    <Compile Include="NavigationViewController.cs" />
+    <Compile Include="UIKit\NavigationViewController.cs" />
     <Compile Include="Nibs\FilePicker.xaml.cs">
       <DependentUpon>FilePicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Nibs\GetStarted.xaml.cs">
       <DependentUpon>GetStarted.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StoryBoard.cs" />
-    <Compile Include="UIAnimations.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewControllerContext.cs" />
-    <Compile Include="ViewControllers\TaskRunnerViewController.cs" />
+    <Compile Include="UIKit\StoryBoard.cs" />
+    <Compile Include="UIKit\UIAnimations.cs" />
+    <Compile Include="UIKit\ViewController.cs" />
+    <Compile Include="UIKit\ViewControllerContext.cs" />
+    <Compile Include="UIKit\TaskRunnerViewController.cs" />
+    <Compile Include="ViewControllers\LoadKeysToMemoryViewController.cs" />
     <Page Include="Controls\iButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -142,6 +145,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\HelveticaNeue-UltraLight.otf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -149,23 +153,24 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\HLLIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="HLLIcon.ico" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\folder.png" />
     <Resource Include="Images\loading_spinner.gif" />
     <Resource Include="Images\fail-icon.png" />
     <Resource Include="Images\success-icon.png" />
+    <Resource Include="Images\fail-icon-small.png" />
+    <Resource Include="Images\success-icon-small.png" />
+    <Resource Include="Images\HungIcon.png" />
+    <Resource Include="HungIcon.ico" />
     <Content Include="WpfAnimatedGif.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

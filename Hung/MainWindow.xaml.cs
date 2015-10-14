@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,8 @@ namespace HLL
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            var uri = new Uri("pack://application:,,,/Hung/");
+            var types = Fonts.GetTypefaces(uri, "./Fonts");
             navigationViewController.PushView(storyBoard.GetViewController(0));
         }
 

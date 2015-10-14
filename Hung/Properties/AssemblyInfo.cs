@@ -7,7 +7,7 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Habuskus")]
+[assembly: AssemblyTitle("Hung")]
 [assembly: AssemblyDescription("Load The Habak Loader, With style")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Pita ©")]

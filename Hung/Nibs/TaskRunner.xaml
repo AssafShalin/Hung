@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="1136" d:DesignWidth="640">
     <Grid Name="TaskRunnerGrid" Margin="0,80,0,0">
-        <StackPanel Name="TasksContainer" Margin="100" HorizontalAlignment="Center">
+        <StackPanel Name="TasksContainer" Margin="165,100,0,0" HorizontalAlignment="Left">
         </StackPanel>
         <Controls:iButton Visibility="Hidden" x:Name="Continue" Label="Continue" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="300" Height="50" Margin="0,0,0,20"></Controls:iButton>
     </Grid>

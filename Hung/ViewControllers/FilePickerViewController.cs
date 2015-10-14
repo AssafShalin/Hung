@@ -76,7 +76,7 @@ namespace HLL.ViewControllers
 
         void select_OnClick(object sender, EventArgs e)
         {
-            this.context.NavigationViewController.PushView(new TaskRunnerViewController(context, new LoadKeysFromDiskTask(this.path)));
+            this.context.NavigationViewController.PushView(new LoadKeysToMemoryViewController(context, path));
         }
         public override Grid GetView()
         {

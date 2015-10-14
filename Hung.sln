@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HLL", "HLL\HLL.csproj", "{987F6729-55EB-46E1-915C-0772119FA2D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hung", "Hung\Hung.csproj", "{987F6729-55EB-46E1-915C-0772119FA2D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

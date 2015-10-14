@@ -4,10 +4,10 @@
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:Controls="clr-namespace:HLL.Controls"
         xmlns:Nibs="clr-namespace:HLL.Nibs"
-        Title="Habuskus" Height="1136" Width="640" ResizeMode="NoResize" WindowStyle="ToolWindow" Loaded="Window_Loaded" WindowStartupLocation="Manual" Left="0" Top="0">
+        Title="Hung" Height="1136" Width="640" ResizeMode="NoResize" WindowStyle="ToolWindow" Loaded="Window_Loaded" WindowStartupLocation="Manual" Left="0" Top="0">
     <Window.Style>
         <Style TargetType="{x:Type Window}">
-            <Setter Property="FontFamily" Value="Helvetica Neue"></Setter>
+            <Setter Property="FontFamily" Value="./Fonts/#Helvetica Neue"></Setter>
             <Setter Property="FontSize" Value="40"></Setter>
         </Style>
     </Window.Style>
@@ -19,7 +19,7 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid Name="Canvas">
-        <Grid Name="NavigationBar" Visibility="Visible">
+        <Grid Name="NavigationBar" Visibility="Hidden">
             <Border BorderBrush="{StaticResource NavigationBarSeperatorColor}" BorderThickness="0,0,0,1" Height="80" VerticalAlignment="Top"> 
                 <Grid Height="79" VerticalAlignment="Top" Background="{StaticResource NavigationBarBackground}" >
                     <Grid.ColumnDefinitions>
