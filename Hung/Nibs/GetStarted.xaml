@@ -9,7 +9,7 @@
         <StackPanel Margin="30">
             <Image Source="{StaticResource AppIcon}" Width="340" ></Image>
             <Label Content="Hung" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0" FontSize="72"/>
-            <Label Content="Habak Upload Negotiator" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0" FontSize="40" />
+            <Label Content="Upload Negotiator" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0" FontSize="40" />
         </StackPanel>
         <Label Name="GetStartedButton" Content="Get Started" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,30" FontSize="40" Foreground="{DynamicResource iBlue}" />
     </Grid>
